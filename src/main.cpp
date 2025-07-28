@@ -28,12 +28,14 @@ int main(int argc, char* argv[]) {
     }
 
     std::map<std::string, double> results;
-
+    std::cout << "Executing query function." << std::endl;
+    std::cout << "size of vectors are "<<customer_data.size()<<","<<orders_data.size()<<","<<lineitem_data.size()<<","<< supplier_data.size()<<","<< nation_data.size()<<","<<region_data.size()<< std::endl;
     if (!executeQuery5(r_name, start_date, end_date, num_threads, customer_data, orders_data, lineitem_data, supplier_data, nation_data, region_data, results)) {
         std::cerr << "Failed to execute TPCH Query 5." << std::endl;
         return 1;
     }
 
+    std::cout << "Executing function to print output." << std::endl;
     if (!outputResults(result_path, results)) {
         std::cerr << "Failed to output results." << std::endl;
         return 1;
